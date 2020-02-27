@@ -1,0 +1,240 @@
+/* global styles */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+body {
+  background: #f3f3f3;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightgray;
+}
+
+/* navigation styles start here */
+
+header {
+  background: white;
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+.logo {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  padding-top: 10px;
+  background: white;
+  width: 100%;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+nav a {
+  color: gray;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.2em;
+  opacity: 0;
+  transition: opactiy 150ms ease-in-out;
+}
+
+nav a:hover {
+  color: black;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 2.5em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span:before,
+.nav-toggle-label span:after {
+  display: block;
+  border-radius: 2px;
+  position: relative;
+  width: 30px;
+  height: 20px;
+}
+
+.nav-toggle-label span:before,
+.nav-toggle-label span:after {
+  content: ">";
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+  color: gray;
+}
+
+.profile-img {
+  width: 50px;
+  border-radius: 100%;
+}
+
+/* Expandable search box styles */
+
+input.search-text {
+  color: #222;
+  position: relative;
+  z-index: 5;
+  transition: z-index 0.8s, width 0.5s, background 0.3s ease, border 0.3s;
+  height: 35px;
+  width: 0;
+  margin: 0;
+  padding: 5px 0 5px 40px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: url(img/search1.png) no-repeat left 9px center;
+  background-size: 24px;
+}
+input.search-text {
+  z-index: 3;
+  width: 240px;
+  border: 1px solid #666;
+  background-color: white;
+  outline: none;
+  cursor: auto;
+  padding-right: 10px;
+}
+
+input.search-submit {
+  position: relative;
+  z-index: 4;
+  left: 49px;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background: none;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+input.search-text::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+.search-wrapper {
+  display: flex;
+}
+
+/* responsive media starts here */
+
+@media screen and (max-width: 799px) {
+  .logo {
+    display: block;
+    max-height: 50px;
+  }
+
+  .about-img {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .logo {
+    display: block;
+    max-height: 50px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .logo {
+    display: block;
+    max-height: 50px;
+  }
+
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 1fr) 1fr auto minmax();
+  }
+
+  .logo {
+    grid-column: 1 / 1;
+  }
+
+  nav {
+    all: unset;
+    grid-column: 3 / span 3;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+    align-items: center;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+
+  .profile {
+    text-decoration: none;
+  }
+
+  .profile-img {
+    padding: 10px;
+  }
+
+}
